@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presente para Meu Amor</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="mini-player">
+      <img
+        src="images/album-art-default.jpg"
+        alt="Capa do Álbum"
+        class="album-art"
+        id="album-art"
+      />
+
+      <div class="track-info">
+        <h3 id="track-title">Nome da Música</h3>
+        <p id="track-artist">Nome do Artista</p>
+      </div>
+
+      <div class="controls">
+        <button id="prev-btn" class="control-btn">
+          <i class="fas fa-backward-step"></i>
+        </button>
+        <button id="play-pause-btn" class="control-btn play-btn">
+          <i class="fas fa-play"></i>
+        </button>
+        <button id="next-btn" class="control-btn">
+          <i class="fas fa-forward-step"></i>
+        </button>
+      </div>
+
+      <div class="progress-container" id="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <audio id="audio-source" src="music/musica1.mp3"></audio>
+    </div>
+
+    <div class="slider">
+      <div class="list">
+        <div class="item">
+          <img src="/assets/4b62fe0e-1d93-47b4-abf6-266bcd9ae543.jfif" />
+        </div>
+        <div class="item">
+          <img src="/assets/4b62fe0e-1d93-47b4-abf6-266bcd9ae543.jfif" />
+        </div>
+        <div class="item">
+          <img src="/assets/4b62fe0e-1d93-47b4-abf6-266bcd9ae543.jfif" />
+        </div>
+        <div class="item">
+          <img src="/assets/4b62fe0e-1d93-47b4-abf6-266bcd9ae543.jfif" />
+        </div>
+        <div class="item">
+          <img src="/assets/4b62fe0e-1d93-47b4-abf6-266bcd9ae543.jfif" />
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button id="prev"><</button>
+        <button id="next">></button>
+      </div>
+      <ul class="dots">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
