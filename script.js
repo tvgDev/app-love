@@ -32,6 +32,12 @@ const playlist = [
     src: "/assets/SpotiDownloader.com - Something About You - Eyedress.mp3",
     art: "/assets/Cover of Something About You by Eyedress, Dent May.jpg",
   },
+  {
+    title: "Sparks",
+    artist: "Coldplay",
+    src: "/assets/SpotiDownloader.com - Sparks - Coldplay.mp3",
+    art: "/assets/Cover of Sparks by Coldplay.jpg",
+  },
 ];
 
 let currentTrackIndex = 0;
@@ -164,3 +170,26 @@ dots.forEach((li, key) => {
     reloadSlider();
   });
 });
+
+let startX = 0;
+let endX = 0;
+
+list.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+list.addEventListener("touchend", (e) => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  let diff = startX - endX;
+  if (diff > 50) {
+    // arrastou para esquerda → próxima imagem
+    next.click();
+  } else if (diff < -50) {
+    // arrastou para direita → imagem anterior
+    prev.click();
+  }
+}
