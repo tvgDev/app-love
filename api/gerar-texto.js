@@ -21,7 +21,7 @@ export default async function handler(request, response) {
           {
             parts: [
               {
-                text: "Me retorne APENAS uma única frase poética sobre o amor, com no máximo 15 palavras. Não inclua introduções, explicações ou qualquer texto extra. Apenas a frase.",
+                text: "Gere um elogio curto, criativo e carinhoso para minha namorada. Retorne APENAS o elogio, com no máximo 20 palavras. Não inclua 'Aqui está um elogio:' ou qualquer outra introdução. Apenas a frase do elogio.",
               },
             ],
           },
