@@ -1,6 +1,8 @@
 export default async function handler(request, response) {
   const apiKey = process.env.GEMINI_API_KEY;
 
+  const { prompt } = request.body;
+
   if (!apiKey) {
     return response.status(500).json({
       error: { message: "A chave da API do Gemini não está configurada." },
@@ -21,7 +23,7 @@ export default async function handler(request, response) {
           {
             parts: [
               {
-                text: "Sua missão é gerar um elogio único e surpreendente para minha namorada. Aleatoriamente escolha um dos seguintes estilos: Use uma metáfora comparando-a com algo do universo (estrelas, galáxias). ou Descreva o efeito que o sorriso dela causa. ou Crie um elogio focado no olhar dela. ou Faça um elogio sobre a inteligência ou a risada dela. ou Faça um elogio sobre a força e a resiliência dela. ou Crie um elogio sobre a bondade e o coração generoso dela. ou Use uma metáfora sobre como a voz dela soa. LEMBRE-SE SELECIONE UM DOS MEIOS DE ELOGIOS ALEATORIAMENTE. Retorne APENAS a frase do elogio, com no máximo 20 palavras e sem qualquer introdução.",
+                text: prompt,
               },
             ],
           },

@@ -39,7 +39,6 @@ body {
     overflow: hidden;
 }
 
-/* ESTILO E ANIMAÇÃO DOS CORAÇÕES (SOBEM) */
 .animated-bg .heart {
     position: absolute;
     bottom: -50px;
@@ -52,29 +51,25 @@ body {
     100% { transform: translateY(-120vh); opacity: 0; }
 }
 
-/* ESTILO E ANIMAÇÃO DOS PATINHOS (VOAM HORIZONTALMENTE) */
 .animated-bg .duck {
     position: absolute;
-    left: -50px; /* Começa fora da tela, à esquerda */
-    color: rgba(255, 255, 0, 0.2); /* Amarelo bem transparente */
+    left: -50px;
+    color: rgba(255, 255, 0, 0.2);
     animation: flyAcross 20s linear infinite;
 }
 
 @keyframes flyAcross {
     0% { transform: translateX(0); }
-    100% { transform: translateX(110vw); } /* Voa para muito além da tela */
+    100% { transform: translateX(110vw); }
 }
 
-
-/* --- VARIEDADE PARA CADA ELEMENTO --- */
-/* Corações */
 .animated-bg .heart:nth-of-type(1) { left: 10%; font-size: 20px; animation-delay: 0s; animation-duration: 15s; }
 .animated-bg .heart:nth-of-type(3) { left: 30%; font-size: 15px; animation-delay: 4s; animation-duration: 18s; }
 .animated-bg .heart:nth-of-type(5) { left: 50%; font-size: 25px; animation-delay: 6s; animation-duration: 16s; }
 .animated-bg .heart:nth-of-type(7) { left: 70%; font-size: 40px; animation-delay: 1s; animation-duration: 20s; }
 .animated-bg .heart:nth-of-type(9) { left: 90%; font-size: 22px; animation-delay: 7s; animation-duration: 24s; }
 
-/* Patinhos */
+
 .animated-bg .duck:nth-of-type(2) { top: 10%; font-size: 25px; animation-delay: 1s; animation-duration: 20s; }
 .animated-bg .duck:nth-of-type(4) { top: 30%; font-size: 35px; animation-delay: 5s; animation-duration: 15s; }
 .animated-bg .duck:nth-of-type(6) { top: 50%; font-size: 20px; animation-delay: 8s; animation-duration: 25s; }

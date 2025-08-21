@@ -193,7 +193,9 @@ function handleSwipe() {
 }
 
 // ↑ Fim do script do slider
-playTrack();
+if (window.innerWidth > 768) {
+  playTrack();
+}
 // ↓ inicio do script do contador
 
 const startDate = new Date(2022, 4, 17, 18, 30, 0);
@@ -232,10 +234,33 @@ updateLoveCounter();
 
 const aiTextElement = document.querySelector("#ai-text-container .ai-text");
 
+const promptsDeElogio = [
+  "Use uma metáfora comparando minha namorada com algo do universo (estrelas, galáxias).",
+  "Descreva o efeito que o sorriso dela causa em você e no ambiente ao redor.",
+  "Crie um elogio focado nos detalhes e na profundidade do olhar dela.",
+  "Faça um elogio sobre a inteligência dela de uma forma que soe poética.",
+  "Descreva a sensação de paz e segurança que a presença dela te traz.",
+  "Faça um elogio sobre a força e a resiliência dela diante de um desafio.",
+  "Crie um elogio sobre a bondade e o coração generoso dela.",
+  "Use uma metáfora criativa para descrever como a voz dela soa para você.",
+  "Faça um elogio sobre o jeito único que ela tem de te fazer rir.",
+];
+
 async function fetchAiText() {
   console.log("Buscando novo elogio... " + new Date().toLocaleTimeString());
+
+  const randomIndex = Math.floor(Math.random() * promptsDeElogio.length);
+  const missaoDoElogio = promptsDeElogio[randomIndex];
+
+  const promptFinal = `Sua missão é gerar um elogio único para minha namorada. A instrução é: "${missaoDoElogio}". Retorne APENAS a frase do elogio, com no máximo 20 palavras e sem qualquer introdução.`;
   try {
-    const response = await fetch("/api/gerar-texto");
+    const response = await fetch("/api/gerar-texto", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt: promptFinal }),
+    });
     const data = await response.json();
 
     if (data.error) {
@@ -244,12 +269,9 @@ async function fetchAiText() {
 
     aiTextElement.style.opacity = 0;
 
-    // 2. Espera a animação de fade out terminar (500ms)
     setTimeout(() => {
-      // 3. Atualiza o texto enquanto ele está invisível
       aiTextElement.textContent = data.text;
 
-      // 4. Fade In: Aumenta a opacidade de volta para 1
       aiTextElement.style.opacity = 1;
     }, 500);
 
