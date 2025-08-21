@@ -204,6 +204,9 @@ function removerElemento(idElemento) {
 
 if (window.innerWidth > 768) {
   playTrack();
+}
+
+if (window.innerWidth < 768) {
   removerElemento("prev");
   removerElemento("next");
 }
@@ -297,4 +300,3 @@ async function fetchAiText() {
 fetchAiText();
 
 setInterval(fetchAiText, 12000);
-
