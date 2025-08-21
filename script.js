@@ -193,8 +193,19 @@ function handleSwipe() {
 }
 
 // ↑ Fim do script do slider
+
+function removerElemento(idElemento) {
+  const elemento = document.getElementById(idElemento);
+  if (elemento) {
+    // Verifica se o elemento existe
+    elemento.remove();
+  }
+}
+
 if (window.innerWidth > 768) {
   playTrack();
+  removerElemento("prev");
+  removerElemento("next");
 }
 // ↓ inicio do script do contador
 
