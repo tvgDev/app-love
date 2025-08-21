@@ -233,7 +233,7 @@ updateLoveCounter();
 const aiTextElement = document.querySelector("#ai-text-container .ai-text");
 
 async function fetchAiText() {
- console.log("Buscando novo elogio... " + new Date().toLocaleTimeString());
+  console.log("Buscando novo elogio... " + new Date().toLocaleTimeString());
   try {
     const response = await fetch("/api/gerar-texto");
     const data = await response.json();
@@ -241,6 +241,17 @@ async function fetchAiText() {
     if (data.error) {
       throw new Error(data.error.message);
     }
+
+    aiTextElement.style.opacity = 0;
+
+    // 2. Espera a animação de fade out terminar (500ms)
+    setTimeout(() => {
+      // 3. Atualiza o texto enquanto ele está invisível
+      aiTextElement.textContent = data.text;
+
+      // 4. Fade In: Aumenta a opacidade de volta para 1
+      aiTextElement.style.opacity = 1;
+    }, 500);
 
     aiTextElement.textContent = data.text;
   } catch (error) {
@@ -253,4 +264,3 @@ async function fetchAiText() {
 fetchAiText();
 
 setInterval(fetchAiText, 15000);
-
