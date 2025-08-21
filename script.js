@@ -285,4 +285,5 @@ async function fetchAiText() {
 
 fetchAiText();
 
-setInterval(fetchAiText, 15000);
+setInterval(fetchAiText, 12000);
+
