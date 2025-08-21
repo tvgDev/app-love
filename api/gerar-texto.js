@@ -21,7 +21,7 @@ export default async function handler(request, response) {
           {
             parts: [
               {
-                text: "Sua missão é gerar um elogio único e surpreendente para minha namorada. Para cada elogio, escolha um dos seguintes estilos: 1. Use uma metáfora comparando-a com algo do universo (estrelas, galáxias). 2. Descreva o efeito que o sorriso dela causa. 3. Crie um elogio focado no olhar dela. 4. Faça um elogio sobre a inteligência ou a risada dela. Retorne APENAS a frase do elogio, com no máximo 20 palavras e sem qualquer introdução.",
+                text: "Sua missão é gerar um elogio único e surpreendente para minha namorada. Para cada elogio, escolha um dos seguintes estilos: Use uma metáfora comparando-a com algo do universo (estrelas, galáxias). Descreva o efeito que o sorriso dela causa. Crie um elogio focado no olhar dela. Faça um elogio sobre a inteligência ou a risada dela. Retorne APENAS a frase do elogio, com no máximo 20 palavras e sem qualquer introdução.",
               },
             ],
           },
