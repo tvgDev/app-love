@@ -21,7 +21,7 @@ export default async function handler(request, response) {
           {
             parts: [
               {
-                text: "Escreva uma curta e bela frase sobre o amor, para aparecer em um aplicativo.",
+                text: "Me retorne APENAS uma única frase poética sobre o amor, com no máximo 15 palavras. Não inclua introduções, explicações ou qualquer texto extra. Apenas a frase.",
               },
             ],
           },
