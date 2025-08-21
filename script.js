@@ -233,6 +233,7 @@ updateLoveCounter();
 const aiTextElement = document.querySelector("#ai-text-container .ai-text");
 
 async function fetchAiText() {
+ console.log("Buscando novo elogio... " + new Date().toLocaleTimeString());
   try {
     const response = await fetch("/api/gerar-texto");
     const data = await response.json();
@@ -252,3 +253,4 @@ async function fetchAiText() {
 fetchAiText();
 
 setInterval(fetchAiText, 15000);
+
