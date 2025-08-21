@@ -2,16 +2,70 @@
 
 body {
     display: flex;
-    justify-content: flex-start; /* Alinhado ao topo em vez de centro */
+    justify-content: flex-start;
     align-items: center;
-    min-height: 100vh; /* Garante que o body ocupe a altura toda */
+    min-height: 100vh;
     background-color: #121212;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
     flex-direction: column;
     gap: 16px;
-    padding: 16px 0; /* Adiciona um respiro em cima e embaixo */
+    padding: 16px 0;
 }
+
+        .landing-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            padding: 0 20px; 
+        }
+
+        .landing-page h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .landing-page p {
+            font-size: 1.2rem;
+            color: #b3b3b3;
+            margin-bottom: 2rem;
+        }
+
+        .enter-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            background-color: #e91e1e;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .enter-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(185, 29, 29, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .landing-page h1 {
+                font-size: 2.5rem; 
+            }
+
+            .landing-page p {
+                font-size: 1rem; 
+            }
+
+            .enter-button {
+                padding: 12px 24px; 
+                font-size: 1rem;
+            }
+        }
 
 .mini-player {
     margin-top: 20px;
@@ -21,10 +75,10 @@ body {
     padding: 16px;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    width: 90%; /* Largura fluida */
-    max-width: 400px; /* Largura máxima do design original */
+    width: 90%;
+    max-width: 400px;
     position: relative;
-    box-sizing: border-box; /* Garante que padding não afete a largura total */
+    box-sizing: border-box;
 }
 
 .album-art {
@@ -32,21 +86,21 @@ body {
     height: 80px;
     border-radius: 4px;
     margin-right: 16px;
-    flex-shrink: 0; /* Evita que a imagem encolha */
+    flex-shrink: 0;
 }
 
 .track-info {
     flex-grow: 1;
-    min-width: 0; /* Previne que o texto empurre outros elementos */
+    min-width: 0;
 }
 
 .track-info h3 {
     margin: 0 0 4px 0;
     font-size: 16px;
     font-weight: 700;
-    white-space: nowrap;      /* Evita quebra de linha */
-    overflow: hidden;         /* Esconde o que transbordar */
-    text-overflow: ellipsis;  /* Adiciona "..." no final */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .track-info p {
@@ -108,16 +162,15 @@ body {
     transition: width 0.1s linear;
 }
 
-/* --- SLIDER --- */
 .slider {
-    width: 90vw; /* Usa a largura da tela como referência */
-    max-width: 400px; /* Mantém o limite do design original */
-    height: 120vw; /* Altura proporcional à largura da tela */
-    max-height: 580px; /* Altura máxima */
+    width: 90vw; 
+    max-width: 400px; 
+    height: 120vw; 
+    max-height: 580px; 
     margin-top: 40px;
     position: relative;
     overflow: hidden;
-    border-radius: 8px; /* Adiciona bordas arredondadas */
+    border-radius: 8px; 
 }
 
 .list {
@@ -131,16 +184,16 @@ body {
 }
 
 .list img {
-    width: 90vw; /* Imagem ocupa a mesma largura do slider */
-    max-width: 400px; /* Com o mesmo limite */
-    height: 100%; /* Ocupa a altura total do container */
+    width: 90vw;
+    max-width: 400px; 
+    height: 100%; 
     object-fit: cover;
 }
 
 .buttons {
     position: absolute;
-    top: 50%; /* Centraliza verticalmente */
-    transform: translateY(-50%); /* Ajuste fino da centralização */
+    top: 50%;
+    transform: translateY(-50%);
     left: 5%;
     width: 90%;
     display: flex;
@@ -148,7 +201,7 @@ body {
 }
 
 .buttons button {
-    width: 40px; /* Botões um pouco menores */
+    width: 40px;
     height: 40px;
     border-radius: 50%;
     background-color: #fff5;
@@ -176,7 +229,7 @@ body {
     width: 10px;
     height: 10px;
     background-color: #fff;
-    margin: 0 10px; /* Reduz o espaçamento horizontal */
+    margin: 0 10px; 
     border-radius: 20px;
     transition: 1s;
 }
@@ -185,32 +238,62 @@ body {
     width: 30px;
 }
 
-
-/* #################################### */
-/* ########## RESPONSIVIDADE ########## */
-/* #################################### */
-
-/* Estilos para telas menores que 768px (tablets e celulares) */
 @media (max-width: 768px) {
     
     .body {
-        gap: 24px; /* Aumenta um pouco o espaço entre os elementos */
+        gap: 24px; 
     }
 
     .album-art {
-        width: 60px; /* Diminui a capa do álbum */
+        width: 60px; 
         height: 60px;
     }
 
     .track-info h3 {
-        font-size: 14px; /* Diminui a fonte do título */
+        font-size: 14px; 
     }
 
     .track-info p {
-        font-size: 12px; /* Diminui a fonte do artista */
+        font-size: 12px; 
     }
+}
 
-    /* O slider e o player já foram ajustados com %, vw e max-width,
-       então não precisam de muitas alterações aqui. Mas poderíamos
-       adicionar ajustes finos se necessário. */
+.love-counter-container {
+    text-align: center;
+    margin-top: 10px; 
+    padding: 0 20px;
+}
+
+#love-counter {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6; 
+}
+
+@media (max-width: 768px) {
+    #love-counter {
+        font-size: 1rem;
+    }
+}
+
+#ai-text-container {
+    margin-top: 30px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.ai-text {
+    color: #b3b3b3;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .ai-text {
+        font-size: 0.9rem;
+    }
 }

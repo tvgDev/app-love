@@ -186,10 +186,67 @@ list.addEventListener("touchend", (e) => {
 function handleSwipe() {
   let diff = startX - endX;
   if (diff > 50) {
-    // arrastou para esquerda → próxima imagem
     next.click();
   } else if (diff < -50) {
-    // arrastou para direita → imagem anterior
     prev.click();
   }
 }
+
+// ↑ Fim do script do slider
+playTrack();
+// ↓ inicio do script do contador
+
+const startDate = new Date(2022, 4, 17, 18, 30, 0);
+
+const loveCounterElement = document.getElementById("love-counter");
+
+function updateLoveCounter() {
+  const now = new Date();
+
+  let diffInSeconds = Math.floor((now - startDate) / 1000);
+
+  const years = Math.floor(diffInSeconds / (365.25 * 24 * 60 * 60));
+  diffInSeconds -= years * 365.25 * 24 * 60 * 60;
+
+  const days = Math.floor(diffInSeconds / (24 * 60 * 60));
+  diffInSeconds -= days * 24 * 60 * 60;
+
+  const hours = Math.floor(diffInSeconds / (60 * 60));
+  diffInSeconds -= hours * 60 * 60;
+
+  const minutes = Math.floor(diffInSeconds / 60);
+  diffInSeconds -= minutes * 60;
+
+  const seconds = diffInSeconds;
+
+  loveCounterElement.innerHTML = `Eu te amo há ${years} anos, ${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos ❤️`;
+}
+
+setInterval(updateLoveCounter, 1000);
+
+updateLoveCounter();
+
+// ↑ Fim do script do contador
+
+// ↓ inicio do script dos textos com I.A
+
+const aiTextElement = document.querySelector("#ai-text-container .ai-text");
+
+async function fetchAiText() {
+  try {
+    const response = await fetch("/api/gerar-texto");
+    const data = await response.json();
+
+    if (data.error) {
+      throw new Error(data.error.message);
+    }
+
+    aiTextElement.textContent = data.text;
+  } catch (error) {
+    console.error("Erro ao buscar a frase:", error);
+    aiTextElement.textContent =
+      "Não foi possível gerar uma frase no momento. Tente recarregar a página.";
+  }
+}
+
+fetchAiText();
